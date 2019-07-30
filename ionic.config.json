@@ -1,0 +1,7 @@
+{
+  "name": "IonicNajvaPlugin",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
