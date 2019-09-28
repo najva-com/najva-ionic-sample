@@ -19,13 +19,18 @@
 	<script type="text/javascript">
 		 document.addEventListener("deviceready", deviceReady, true);
 		 function deviceReady() {
-			 window.najva.init(function(success){},function(error){}, YOUR_CAMPAIGN_ID_GOES_HERE, YOUR_WEBSITE_ID_GOES_HERE, YOUR_API_KEY_GOES_HERE);
+			 window.najva.init(function(success){
+				console.log("najav_init successful");
+			 },function(error){
+				console.log("najav_init fail");
+			 });
 			 window.najva.receiveJSONNotifications(function (json) {
-				 consol.log("reveiveJSON: " + json);
+				 console.log("reveiveJSON: " + json);
 					//todo handle json here
 			  });
 			 window.najva.handleUsers(function (token) {
 					  //todo send token to your server.
+					  console.log("token: " + token);
 			  });
 
 		 }
