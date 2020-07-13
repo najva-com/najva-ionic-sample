@@ -2,39 +2,42 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <title>Ionic App</title>
-  <base href="/" />
-  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="format-detection" content="telephone=no" />
-  <meta name="msapplication-tap-highlight" content="no" />
-  <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
-  <!-- add to homescreen for ios -->
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta charset="utf-8"/>
+    <title>Ionic App</title>
+    <base href="/"/>
+    <meta name="viewport"
+          content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <link rel="icon" type="image/png" href="assets/icon/favicon.png"/>
+    <!-- add to homescreen for ios -->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
 </head>
 
 <body>
-  <app-root>
-	<script type="text/javascript">
+<app-root>
+    <script type="text/javascript">
 		 document.addEventListener("deviceready", deviceReady, true);
 		 function deviceReady() {
+		     window.najva.enableLocation();
 			 window.najva.init(function(success){
 				console.log("najav_init successful");
 			 },function(error){
 				console.log("najav_init fail");
 			 });
-			 window.najva.receiveJSONNotifications(function (json) {
-				 console.log("reveiveJSON: " + json);
-					//todo handle json here
-			  });
 			 window.najva.handleUsers(function (token) {
 					  //todo send token to your server.
 					  console.log("token: " + token);
-			  });
-
+			 });
+              window.najva.notificationReceiver(function(id){
+                  console.log(id);
+              });
+              window.najva.notificationClickReceiver(function(id){
+                  console.log(id);
+              });
 		 }
-	</script>
+    </script>
 </app-root>
 </body>
 
